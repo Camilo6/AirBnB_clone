@@ -3,6 +3,7 @@
 <div align="center"><img src="images/Airbnb clone.gif" width="500" height="450"/>
 
 ---
+<div align="left">
 
 ## Resources:books:
 Read or watch:
@@ -44,5 +45,11 @@ What you should learn from this project:
 
 ## Authors
 * **Juliana Monroy Perez** - [julianamonr03](https://github.com/julianamonr03)
+<div <li><a href="https://twitter.com/julianamonroy03"><img src="images/TweeterIcon.png"></a></li>
+</div>
 
 * **Julian Camilo Torres** - [camilo6](https://github.com/Camilo6)
+
+<div <li><a href="https://twitter.com/CamiloTorresR_"><img src="images/TweeterIcon.png"></a></li>
+</div>
+
