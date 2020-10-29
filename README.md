@@ -6,11 +6,15 @@
 
 ## Resources:books:
 Read or watch:
-* [Data structures](https://intranet.hbtn.io/rltoken/dnFegYagqFoW7WraIP-9RA)
-* [Lambda, filter, reduce and map](https://intranet.hbtn.io/rltoken/xXAlsMIs9-sCL4fljYeNfg)
-* [Learn to Program 12 Lambda Map Filter Reduce](https://intranet.hbtn.io/rltoken/AT-UtsGuhgIzQSwSdKvckw)
+* [cmd - module](https://docs.python.org/3.4/library/cmd.html)
+* [uuid - module](https://docs.python.org/3.4/library/uuid.html)
+* [Datatime](https://docs.python.org/3.4/library/datetime.html)
+* [unittest module](https://docs.python.org/3.4/library/unittest.html#module-unittest)
+* [args / kwargs](https://yasoob.me/2013/08/04/args-and-kwargs-in-python-explained/)
 
 ---
+<div align="left">
+
 ## Learning Objectives:bulb:
 What you should learn from this project:
 
@@ -26,6 +30,7 @@ What you should learn from this project:
 * How to handle named arguments in a function
 
 ---
+<div align="center">
 
 ### [0. Squared simple](./0-square_matrix_simple.py)
 * Write a function that computes the square value of all integers of a matrix.
