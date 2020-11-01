@@ -3,6 +3,12 @@
 
 
 import json
+from models.user import User
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.amenity import Amenity
 
 
 class FileStorage:
@@ -26,7 +32,7 @@ class FileStorage:
         for key in self.__objects:
             js_cp[key] = self.__objects[key].to_dict()
         with open(self.__file_path, "w") as fl:
-           json.dump(js_cp, fl)
+            json.dump(js_cp, fl)
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
@@ -34,5 +40,5 @@ class FileStorage:
             with open(self.__file_path, "r") as fl:
                 for line in fl:
                     dz = json.loads(line)
-        except :
+        except:
             pass
