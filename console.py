@@ -5,10 +5,17 @@ import cmd
 import shlex
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models.user import User
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.amenity import Amenity
 
 
 """ Classes """
 CLASS = {"BaseModel": BaseModel}
+
 
 class HBNBCommand(cmd.Cmd):
     """ Commands interpreter """
@@ -16,8 +23,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
             """
-            Update specific attribute of a class instance of a given <id>
-            Usage: update <class name> <id> <attribute name> "<attribute value>"
+            Update specific attribute of a class instance of
+            a given <id> Usage:
+            update <class name> <id> <attribute name> "<attribute value>"
             """
             arg_split = arg.split()
 
@@ -43,13 +51,13 @@ class HBNBCommand(cmd.Cmd):
 
             else:
                 storage = FileStorage()
-                storage.reload()
                 data = storage.all()
                 key = "{}.{}".format(arg_split[0], arg_split[1])
                 if key not in data.keys():
                     print("** no instance found **")
                     return False
                 else:
+                    setattr(data[key], arg_split[2], arg_split[3])
                     storage.save()
 
     def do_quit(self, arg):
@@ -70,11 +78,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return False
 
-        arg_split = arg.split() #Split arguments
-        if arg_split[0] in CLASS: #Include argument created in CLASS
+        arg_split = arg.split()  # Split arguments
+        if arg_split[0] in CLASS:  # Include argument created in CLASS
             # Passing created argument to a new instance
             new_inst = CLASS[arg_split[0]]()
-            new_inst.save() #Save the new instance in JSON file
+            new_inst.save()  # Save the new instance in JSON file
             print(new_inst.id)
         else:
             print("** class doesn't exist **")
@@ -129,7 +137,7 @@ class HBNBCommand(cmd.Cmd):
         if key not in data.keys():
             print("** no instance found **")
             return False
-        #Deletes data and save in JSON file
+        # Deletes data and save in JSON file
         del data[key]
         storage.save()
 
