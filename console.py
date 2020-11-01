@@ -14,6 +14,44 @@ class HBNBCommand(cmd.Cmd):
     """ Commands interpreter """
     prompt = "(hbnb) "
 
+    def do_update(self, arg):
+            """
+            Update specific attribute of a class instance of a given <id>
+            Usage: update <class name> <id> <attribute name> "<attribute value>"
+            """
+            arg_split = arg.split()
+
+            if not len(arg_split):
+                print("** class name missing **")
+                return False
+
+            if arg_split[0] not in CLASS:
+                print("** class doesn't exist **")
+                return False
+
+            if len(arg_split) == 1:
+                print("** instance id missing **")
+                return False
+
+            if len(arg_split) == 2:
+                print("** attribute name missing **")
+                return False
+
+            if len(arg_split) == 3:
+                print("** value missing **")
+                return False
+
+            else:
+                storage = FileStorage()
+                storage.reload()
+                data = storage.all()
+                key = "{}.{}".format(arg_split[0], arg_split[1])
+                if key not in data.keys():
+                    print("** no instance found **")
+                    return False
+                else:
+                    storage.save()
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
@@ -94,6 +132,28 @@ class HBNBCommand(cmd.Cmd):
         #Deletes data and save in JSON file
         del data[key]
         storage.save()
+
+    def do_all(self, arg):
+        """
+        Shows all objects, or all objects of a class
+        """
+        arg_split = arg.split()
+        storage = FileStorage()
+        storage.reload()
+        data = storage.all()
+        d_all = []
+        if not len(arg_split):
+            for obj in data.values():
+                d_all.append(obj.__str__())
+        else:
+            if arg_split[0] not in CLASS:
+                print("** class doesn't exist **")
+                return False
+            for obj in data.values():
+                if arg_split[0] == obj.__class__.__name__:
+                    d_all.append(obj.__str__())
+        print(d_all)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
