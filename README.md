@@ -33,12 +33,12 @@ What you should learn from this project:
 ---
 <div align="center">
 
-### [0. Squared simple](./0-square_matrix_simple.py)
-* Write a function that computes the square value of all integers of a matrix.
+### [3. BaseModel](./test_save_reload_base_model.py)
+* Class BaseModel that defines all common attributes/methods for other classes.
 
 
-### [1. Search and replace](./1-search_replace.py)
-* Write a function that replaces all occurrences of an element by another in a new list.
+### [6. Console 0.0.1](./console.py)
+* Contains the entry point of the command interpreter:
 
 
 ---
