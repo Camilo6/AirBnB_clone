@@ -14,7 +14,9 @@ from models.amenity import Amenity
 
 
 """ Classes """
-CLASS = {"BaseModel": BaseModel, "User": User, "City": City, "Place": Place, "Review": Review, "State": State, "Amenity": Amenity}
+CLASS = {"BaseModel": BaseModel, "User": User,
+         "City": City, "Place": Place, "Review": Review,
+         "State": State, "Amenity": Amenity}
 
 
 class HBNBCommand(cmd.Cmd):
