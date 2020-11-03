@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Program that contains the entry point of the command interpreter"""
 
+from models.base_model import BaseModel
 import cmd
 import shlex
-from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.user import User
 from models.city import City
@@ -14,7 +14,7 @@ from models.amenity import Amenity
 
 
 """ Classes """
-CLASS = {"BaseModel": BaseModel}
+CLASS = {"BaseModel": BaseModel, "User": User, "City": City, "Place": Place, "Review": Review, "State": State, "Amenity": Amenity}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -53,12 +53,12 @@ class HBNBCommand(cmd.Cmd):
                 storage = FileStorage()
                 data = storage.all()
                 key = "{}.{}".format(arg_split[0], arg_split[1])
-                if key not in data.keys():
-                    print("** no instance found **")
-                    return False
-                else:
+                if key in data.keys():
                     setattr(data[key], arg_split[2], arg_split[3])
                     storage.save()
+                else:
+                    print("** no instance found **")
+                    return False
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
