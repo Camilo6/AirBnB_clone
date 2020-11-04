@@ -23,6 +23,8 @@ class BaseModel():
         self.updated_at = self.created_at
         if (kwargs):
             for key, value in kwargs.items():
+                if key == "__class__":
+                    continue
                 if key == 'created_at' or key == 'updated_at':
                     self.__dict__[key] = datetime.strptime(value, format_t)
                 else:
