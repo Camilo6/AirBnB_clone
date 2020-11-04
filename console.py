@@ -24,7 +24,8 @@ class HBNBCommand(cmd.Cmd):
     """ Commands interpreter """
     if sys.stdout.isatty():
         prompt = "(hbnb) "
-
+    else:
+        prompt = "(hbnb)" + "\n"
 
     def do_update(self, arg):
             """Update specific attribute of a class instance of
