@@ -74,36 +74,6 @@ class HBNBCommand(cmd.Cmd):
         """Empty line shouldn’t execute anything"""
         pass
 
-    def help_quit(self):
-        """ Command help """
-        print("Quit command to exit program")
-
-    def help_EOF(self):
-        """ Command help """
-        print("(CTR+D) to exit program")
-
-    def help_create(self):
-        """ Command help """
-        print("Usage: create <class name>")
-
-    def help_all(self):
-        """ Command help """
-        print("Usage: all <class name> <id>")
-
-    def help_show(self):
-        """ Command help """
-        print("Usage: show <class name> <id>")
-
-    def help_update(self):
-        """ Command help """
-        print("Usage: update <class name>", end="")
-        print(" ", end="")
-        print("<id> <attribute name> <attribute value>")
-
-    def help_destroy(self):
-        """ Command help """
-        print("Usage: destroy <class name>")
-
     def do_create(self, arg):
         """Creates a new instance of BaseModel
         Usage: create <class>
