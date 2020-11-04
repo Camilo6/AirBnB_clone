@@ -4,6 +4,7 @@
 from models.base_model import BaseModel
 import cmd
 import shlex
+import sys
 from models.engine.file_storage import FileStorage
 from models.user import User
 from models.city import City
