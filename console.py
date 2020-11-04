@@ -21,7 +21,9 @@ CLASS = {"BaseModel": BaseModel, "User": User,
 
 class HBNBCommand(cmd.Cmd):
     """ Commands interpreter """
-    prompt = "(hbnb) "
+    if sys.stdout.isatty():
+        prompt = "(hbnb) "
+
 
     def do_update(self, arg):
             """Update specific attribute of a class instance of
