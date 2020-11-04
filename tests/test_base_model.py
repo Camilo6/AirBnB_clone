@@ -2,17 +2,22 @@
 """
 Define: BaseModel class unitests
 """
-
-import unittest
-from datetime import datetime
-from models.base_model import BaseModel
+import sys
+__import__("sys").path.append("..")
 
 
-class TestBaseModel(unitests.TestCase):
+if __name__ == '__main__':
+    from models.base_model import BaseModel
 
-    def test_id_is_public_str(self):
-        self.assertEqual(str, type(BaseModel().id))
-
-
-if __name__ == "__main__":
-    unittest.main()
+    my_model = BaseModel()
+    my_model.name = "Holberton"
+    my_model.my_number = 89
+    print(my_model)
+    my_model.save()
+    print(my_model)
+    my_model_json = my_model.to_dict()
+    print(my_model_json)
+    print("JSON of my_model:")
+    for key in my_model_json.keys():
+        print("\t{}: ({}) - {}".format(key,
+                                       type(my_model_json[key]), my_model_json[key]))
