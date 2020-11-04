@@ -7,12 +7,14 @@ from datetime import datetime
 import models
 
 
+format_t = "%Y-%m-%dT%H:%M:%S.%f"
+
+
 class BaseModel():
     """
     Defines all common
     attributes/methods for other classes
     """
-    format_t = "%Y-%m-%dT%H:%M:%S.%f"
 
     def __init__(self, *args, **kwargs):
         """ args: Not used"""
