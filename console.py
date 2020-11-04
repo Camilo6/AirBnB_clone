@@ -2,6 +2,7 @@
 """Program that contains the entry point of the command interpreter"""
 
 from models.base_model import BaseModel
+import json
 import cmd
 import shlex
 import sys
@@ -22,24 +23,21 @@ CLASS = {"BaseModel": BaseModel, "User": User,
 
 class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter """
-    if sys.stdout.isatty():
-        prompt = "(hbnb) "
-    else:
-        prompt = "(hbnb)" + "\n"
+    prompt = "(hbnb)"
 
     def do_quit(self, arg):
-        """Quit command to exit the program"""
+        """ Quit command to exit the program """
         return True
 
-    def do_EOF(self, arg):
-        """Exit the program"""
-        print()
-        return True
-
-    def empty_line(self, arg):
+    def emptyline(self):
         """Empty line shouldn’t execute anything"""
         pass
 
+    def do_EOF(self, arg):
+        """ Exit the program """
+        print()
+        return True
+  
     def do_create(self, arg):
         """Creates a new instance of BaseModel
         Usage: create <class>
