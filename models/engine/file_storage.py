@@ -9,6 +9,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.amenity import Amenity
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -39,7 +40,7 @@ class FileStorage:
         try:
             with open(self.__file_path, "r") as fl:
                 dz = json.load(fl)
-            for key, value in dz.items():
-                self.__objects[key] = eval(value['__class__'])(**value)
-        except:
+        except FileNotFoundError:
             pass
+        for key, value in dz.items():
+            self.__objects[key] = eval(value['__class__'])(**value)
