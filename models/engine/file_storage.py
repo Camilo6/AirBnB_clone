@@ -38,7 +38,8 @@ class FileStorage:
         """Deserializes the JSON file to __objects"""
         try:
             with open(self.__file_path, "r") as fl:
-                for line in fl:
-                    dz = json.loads(line)
+                dz = json.load(fl)
+                for key, value in dz.items():
+                    self.__objects[key] = eval(value['__class__'])(**value)
         except:
             pass
