@@ -23,7 +23,7 @@ CLASS = {"BaseModel": BaseModel, "User": User,
 
 class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter """
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
 
     def do_quit(self, arg):
         """ Quit command to exit the program """
@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
         """ Exit the program """
         print()
         return True
-  
+
     def do_create(self, arg):
         """Creates a new instance of BaseModel
         Usage: create <class>
