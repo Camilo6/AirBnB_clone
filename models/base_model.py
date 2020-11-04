@@ -18,6 +18,9 @@ class BaseModel():
 
     def __init__(self, *args, **kwargs):
         """ args: Not used"""
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = self.created_at
         if (kwargs):
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
@@ -25,15 +28,12 @@ class BaseModel():
                 else:
                     self.__dict__[key] = value
         else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = self.created_at
             models.storage.new(self)
 
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__>"""
         class_name = self.__class__.__name__
-        return ("[{}] ({}) {}".format(class_name, self.id, self.__dict__))
+        return ("[{:s}] ({:s}) {}".format(class_name, self.id, self.__dict__))
 
     def save(self):
         """ Update datatime"""
