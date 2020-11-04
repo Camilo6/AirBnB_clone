@@ -24,9 +24,9 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_update(self, arg):
-            """
-            Update specific attribute of a class instance of
-            a given <id> Usage:
+            """Update specific attribute of a class instance of
+            a given <id>
+            Usage:
             update <class name> <id> <attribute name> "<attribute value>"
             """
             arg_split = arg.split()
@@ -60,7 +60,6 @@ class HBNBCommand(cmd.Cmd):
                     storage.save()
                 else:
                     print("** no instance found **")
-                    return False
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -75,8 +74,40 @@ class HBNBCommand(cmd.Cmd):
         """Empty line shouldn’t execute anything"""
         pass
 
+    def help_quit(self):
+        """ Command help """
+        print("Quit command to exit program")
+
+    def help_EOF(self):
+        """ Command help """
+        print("(CTR+D) to exit program")
+
+    def help_create(self):
+        """ Command help """
+        print("Usage: create <class name>")
+
+    def help_all(self):
+        """ Command help """
+        print("Usage: all <class name> <id>")
+
+    def help_show(self):
+        """ Command help """
+        print("Usage: show <class name> <id>")
+
+    def help_update(self):
+        """ Command help """
+        print("Usage: update <class name>", end="")
+        print(" ", end="")
+        print("<id> <attribute name> <attribute value>")
+
+    def help_destroy(self):
+        """ Command help """
+        print("Usage: destroy <class name>")
+
     def do_create(self, arg):
-        """ Creates a new instance of BaseModel """
+        """Creates a new instance of BaseModel
+        Usage: create <class>
+        """
         if len(arg) < 1:
             print("** class name missing **")
             return False
@@ -92,9 +123,8 @@ class HBNBCommand(cmd.Cmd):
             return False
 
     def do_show(self, arg):
-        """
-        Prints the string representation of
-        an instance based on the class name and id
+        """Display string representation of a class with id
+        Usage: show <class> <id>
         """
         arg_split = arg.split()
         if len(arg_split) < 1:
@@ -119,7 +149,9 @@ class HBNBCommand(cmd.Cmd):
         print(datas[key])
 
     def do_destroy(self, arg):
-        """ Deletes an instance based on the class name and id """
+        """Deletes an instance based on the class name and id
+        Usage: destroy <class>
+        """
 
         arg_split = arg.split()
         if len(arg_split) == 0:
@@ -145,8 +177,8 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, arg):
-        """
-        Shows all objects, or all objects of a class
+        """Shows all objects, or all objects of a class
+        Usage: all <class>
         """
         arg_split = arg.split()
         storage = FileStorage()
