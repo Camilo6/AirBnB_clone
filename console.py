@@ -21,49 +21,11 @@ CLASS = {"BaseModel": BaseModel, "User": User,
 
 
 class HBNBCommand(cmd.Cmd):
-    """ Commands interpreter """
+    """Defines the HolbertonBnB command interpreter """
     if sys.stdout.isatty():
         prompt = "(hbnb) "
     else:
         prompt = "(hbnb)" + "\n"
-
-    def do_update(self, arg):
-            """Update specific attribute of a class instance of
-            a given <id>
-            Usage:
-            update <class name> <id> <attribute name> "<attribute value>"
-            """
-            arg_split = arg.split()
-
-            if not len(arg_split):
-                print("** class name missing **")
-                return False
-
-            if arg_split[0] not in CLASS:
-                print("** class doesn't exist **")
-                return False
-
-            if len(arg_split) == 1:
-                print("** instance id missing **")
-                return False
-
-            if len(arg_split) == 2:
-                print("** attribute name missing **")
-                return False
-
-            if len(arg_split) == 3:
-                print("** value missing **")
-                return False
-
-            else:
-                storage = FileStorage()
-                data = storage.all()
-                key = "{}.{}".format(arg_split[0], arg_split[1])
-                if key in data.keys():
-                    setattr(data[key], arg_split[2], arg_split[3])
-                    storage.save()
-                else:
-                    print("** no instance found **")
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -171,6 +133,43 @@ class HBNBCommand(cmd.Cmd):
                     d_all.append(obj.__str__())
         print(d_all)
 
+    def do_update(self, arg):
+            """Update specific attribute of a class instance of
+            a given <id>
+            Usage:
+            update <class name> <id> <attribute name> "<attribute value>"
+            """
+            arg_split = arg.split()
+
+            if not len(arg_split):
+                print("** class name missing **")
+                return False
+
+            if arg_split[0] not in CLASS:
+                print("** class doesn't exist **")
+                return False
+
+            if len(arg_split) == 1:
+                print("** instance id missing **")
+                return False
+
+            if len(arg_split) == 2:
+                print("** attribute name missing **")
+                return False
+
+            if len(arg_split) == 3:
+                print("** value missing **")
+                return False
+
+            else:
+                storage = FileStorage()
+                data = storage.all()
+                key = "{}.{}".format(arg_split[0], arg_split[1])
+                if key in data.keys():
+                    setattr(data[key], arg_split[2], arg_split[3])
+                    storage.save()
+                else:
+                    print("** no instance found **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
