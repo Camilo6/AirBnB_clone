@@ -7,6 +7,7 @@ import sys
 from models.state import State
 
 class test_StateModel(unittest.Testcase):
+    """ Test state"""
 
     def save(self):
         self.model = State()

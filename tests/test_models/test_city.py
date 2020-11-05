@@ -7,6 +7,7 @@ import sys
 from models.city import City
 
 class test_CityModel(unittest.Testcase):
+    """ Test city """
 
     def save(self):
         self.model = City()

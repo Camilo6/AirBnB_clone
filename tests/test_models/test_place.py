@@ -7,6 +7,7 @@ import sys
 from models.place import Place
 
 class test_PlaceModel(unittest.Testcase):
+    """ Test place """
 
     def save(self):
         self.model = Place()
