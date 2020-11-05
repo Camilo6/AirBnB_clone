@@ -2,43 +2,50 @@
 '''test place'''
 
 import unittest
-import models
-import sys
+from models.base_model import BaseModel
 from models.place import Place
 
 
-class test_PlaceModel(unittest.Testcase):
+class test_Place(unittest.TestCase):
     """ Test place """
 
-    def save(self):
-        """test save""""
-        self.model = Place()
-        self.model.save()
+    def test_type_bathrooms(self):
+        """ Verify if is instance"""
+        self.assertIsInstance(Place.number_bathrooms, int)
+
+    def test_type_rooms(self):
+        self.assertIsInstance(Place.number_rooms, int)
+    
+    def test_type_latitude(self):
+        self.assertIsInstance(Place.latitude, float)
+
+    def test_type_longitude(self):
+        self.assertIsInstance(Place.longitude, float)
 
     def test_instance_in_object(self):
         """test instance in objects"""
-        self.assertTrue(hasattr(self.model, "city_id"))
-        self.assertTrue(hasattr(self.model, "user_id"))
-        self.assertTrue(hasattr(self.model, "name"))
-        self.assertTrue(hasattr(self.model, "description"))
-        self.assertTrue(hasattr(self.model, "number_rooms"))
-        self.assertTrue(hasattr(self.model, "number_bathrooms"))
-        self.assertTrue(hasattr(self.model, "max_guest"))
-        self.assertTrue(hasattr(self.model, "price_by_night"))
-        self.assertTrue(hasattr(self.model, "latitude"))
-        self.assertTrue(hasattr(self.model, "longitude"))
-        self.assertTrue(hasattr(self.model, "amenity_ids"))
-        self.assertEqual(self.model.city_id, "")
-        self.assertEqual(self.model.user_id, "")
-        self.assertEqual(self.model.name, "")
-        self.assertEqual(self.model.description, "")
-        self.assertEqual(self.model.number_rooms, 0)
-        self.assertEqual(self.model.number_bathrooms, 0)
-        self.assertEqual(self.model.max_guest, 0)
-        self.assertEqual(self.model.price_by_night, 0)
-        self.assertEqual(self.model.latitude, 0.0)
-        self.assertEqual(self.model.longitude, 0.0)
-        self.assertEqual(self.model.amenity_ids, [])
+        self.assertTrue(hasattr(Place, "city_id"))
+        self.assertTrue(hasattr(Place, "user_id"))
+        self.assertTrue(hasattr(Place, "name"))
+        self.assertTrue(hasattr(Place, "description"))
+        self.assertTrue(hasattr(Place, "number_rooms"))
+        self.assertTrue(hasattr(Place, "number_bathrooms"))
+        self.assertTrue(hasattr(Place, "max_guest"))
+        self.assertTrue(hasattr(Place, "price_by_night"))
+        self.assertTrue(hasattr(Place, "latitude"))
+        self.assertTrue(hasattr(Place, "longitude"))
+        self.assertTrue(hasattr(Place, "amenity_ids"))
+        self.assertEqual(Place.city_id, "")
+        self.assertEqual(Place.user_id, "")
+        self.assertEqual(Place.name, "")
+        self.assertEqual(Place.description, "")
+        self.assertEqual(Place.number_rooms, 0)
+        self.assertEqual(Place.number_bathrooms, 0)
+        self.assertEqual(Place.max_guest, 0)
+        self.assertEqual(Place.price_by_night, 0)
+        self.assertEqual(Place.latitude, 0.0)
+        self.assertEqual(Place.longitude, 0.0)
+        self.assertEqual(Place.amenity_ids, [])
 
 if __name__ == "__main__":
     unittest.main()
