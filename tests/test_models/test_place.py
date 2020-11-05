@@ -11,10 +11,12 @@ class test_PlaceModel(unittest.Testcase):
     """ Test place """
 
     def save(self):
+        """test save""""
         self.model = Place()
         self.model.save()
 
     def test_instance_in_object(self):
+        """test instance in objects"""
         self.assertTrue(hasattr(self.model, "city_id"))
         self.assertTrue(hasattr(self.model, "user_id"))
         self.assertTrue(hasattr(self.model, "name"))

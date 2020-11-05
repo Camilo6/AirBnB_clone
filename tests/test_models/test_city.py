@@ -11,10 +11,12 @@ class test_CityModel(unittest.Testcase):
     """ Test city """
 
     def save(self):
+        """test save"""
         self.model = City()
         self.model.save()
 
     def test_instance_in_object(self):
+        """test instance in objects"""
         self.assertTrue(hasattr(self.model, "state_id"))
         self.assertTrue(hasattr(self.model, "name"))
         self.assertEqual(self.model.state_id, "")
