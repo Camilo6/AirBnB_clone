@@ -6,6 +6,7 @@ from models.review import Review
 
 class test_Review(unittest.TestCase):
     """ Test review """
+
     def test_type_text(self):
         """ Verify if is instance"""
         self.assertIsInstance(Review.text, str)
