@@ -6,6 +6,7 @@ import models
 import sys
 from models.state import State
 
+
 class test_StateModel(unittest.Testcase):
     """ Test state"""
 

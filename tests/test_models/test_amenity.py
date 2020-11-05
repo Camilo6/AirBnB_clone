@@ -6,6 +6,7 @@ import models
 import sys
 from models.amenity import Amenity
 
+
 class test_AmenityModel(unittest.Testcase):
     """ Test amenity """
 
