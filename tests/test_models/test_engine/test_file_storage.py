@@ -15,15 +15,15 @@ class Test_attributes(unittest.TestCase):
 
     def test_created_at(self):
         """ test created_at """
-        x = BaseModel().to_dict()
+        base = BaseModel().to_dict()
         self.assertEqual(type(self.created_at), datetime.datetime)
-        self.assertEqual(type(x.created_at), str)
+        self.assertEqual(type(base.created_at), str)
 
     def test_updated_at(self):
         """ test updated_at """
-        x = BaseModel().to_dict()
+        base = BaseModel().to_dict()
         self.assertEqual(type(self.updated_at), datetime.datetime)
-        self.assertEqual(type(x.updated_at), str)
+        self.assertEqual(type(base.updated_at), str)
 
 if __name__ == '__main__':
     unittest.main()
